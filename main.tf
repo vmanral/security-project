@@ -1,3 +1,4 @@
+/*
 data "terraform_remote_state" "network" {
   backend = "remote"
 
@@ -8,6 +9,12 @@ data "terraform_remote_state" "network" {
       name = "network-project"
     }
   }
+}
+*/
+
+data "tfe_outputs" "foo" {
+  organization = "vmanral-org-1"
+  workspace = "network-project"
 }
 
 output "network_public_ips" {
