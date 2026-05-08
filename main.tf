@@ -24,5 +24,5 @@ data "tfe_outputs" "foo" {
 
 output "network_public_ips" {
   description = "List of public IP's fetched from the Network workspace"
-  value = data.tfe_outputs.foo.values.public_ips
+  value = data.tfe_outputs.foo.nonsensitive_values.public_ips
 }
