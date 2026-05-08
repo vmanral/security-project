@@ -10,6 +10,11 @@ data "terraform_remote_state" "network" {
     }
   }
 }
+
+output "network_public_ips" {
+  description = "List of public IP's fetched from the Network workspace"
+  value = data.terraform_remote_state.network.outputs.public_ips
+}
 */
 
 data "tfe_outputs" "foo" {
@@ -19,5 +24,5 @@ data "tfe_outputs" "foo" {
 
 output "network_public_ips" {
   description = "List of public IP's fetched from the Network workspace"
-  value = data.terraform_remote_state.network.outputs.public_ips
+  value = data.tfe_outputs.foo.outputs.public_ips
 }
